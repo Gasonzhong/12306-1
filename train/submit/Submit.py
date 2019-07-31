@@ -107,7 +107,6 @@ class Submit(object):
             passenger.totalTimes = passengerJson.get('total_times') or ''
             passenger.indexId = passengerJson.get('index_id') or ''
             passenger.allEncStr = passengerJson.get('allEncStr') or ''
-
             #12306版本更新隐藏了证件号,直接取最后三位
             passengersDetails[passenger.passengerIdNo[-3:]] = passenger
             # passengersDetails[passenger.passengerIdNo] = passenger
@@ -267,6 +266,9 @@ class Submit(object):
         else:
             for id in self.__ticket.passengersId:
                 ticket_details = passengersDetailsList.get(id[-3:])
+                if ticket_details is None:
+                    Log.v('乘客信息未找到!')
+                    return False
                 ticket_details.passengerIdNo = id
                 passengersDetails.append(ticket_details)
 

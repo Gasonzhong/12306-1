@@ -10,7 +10,6 @@ from utils.Log import Log
 #scikit-image
 #numpy
 from train.image_captcha.baidu import ImageClassify
-
 IMG_V_POS = [4, 76, 148, 220]
 IMG_H_POS = [40, 108]
 IMG_WIDTH = 68  # 每个小图片的宽度

@@ -3,7 +3,7 @@ import json
 import time
 from collections import OrderedDict
 from conf.urls_conf import loginUrls
-from conf.constant import CAPTCHA_CHECK_METHOD_HAND, CAPTCHA_CHECK_METHOD_THREE
+from conf.constant import CAPTCHA_CHECK_METHOD_HAND, CAPTCHA_CHECK_METHOD_THREE,CAPTCHA_CHECK_METHOD_AUTO
 from conf.constant import TYPE_LOGIN_NORMAL_WAY, TYPE_LOGIN_OTHER_WAY
 from net.NetUtils import EasyHttp
 from train.login.Capthca import Captcha
@@ -104,6 +104,8 @@ class Login(object):
             results, verify = Captcha().verifyCodeAuto()
         elif autoCheck == CAPTCHA_CHECK_METHOD_HAND:
             results, verify = Captcha().verifyCaptchaByHand(type=type)
+        elif autoCheck == CAPTCHA_CHECK_METHOD_AUTO:
+            results, verify = Captcha().verifyCaptchaByAuto(type=type)
         else:
             results, verify = Captcha().verifyCodeAutoByMyself(type=type)
 

@@ -183,7 +183,7 @@ class EasyHttp(object):
 
 if __name__ == '__main__':
     dic = collections.OrderedDict()
-    dic['leftTicketDTO.train_date'] = '2019-01-01'
+    dic['leftTicketDTO.train_date'] = '2019-08-01'
     dic['leftTicketDTO.from_station'] = 'SHH'
     dic['leftTicketDTO.to_station'] = 'GZQ'
     dic['purpose_codes'] = 'ADULT'
@@ -198,7 +198,7 @@ if __name__ == '__main__':
                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36",
                "Accept-Encoding": "gzip, deflate, br",
                "Content-Type": "application/json;charset=utf-8"}
-    url = queryUrls['query']['url'] + "?leftTicketDTO.train_date=" + '2019-01-01' + "&leftTicketDTO.from_station=" + 'SHH' + "&leftTicketDTO.to_station=" + 'GZQ' + "&purpose_codes=ADULT"
+    url = queryUrls['query']['url'] + "?leftTicketDTO.train_date=" + '2019-08-01' + "&leftTicketDTO.from_station=" + 'SHH' + "&leftTicketDTO.to_station=" + 'GZQ' + "&purpose_codes=ADULT"
     result = requests.get(url,headers=headers,  timeout=15)
     print("---------------------------------------------------------------------")
     print(result.content)

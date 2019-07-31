@@ -68,6 +68,7 @@ def main():
             Log.v('已登录状态,开始寻找小票票')
 
     seatTypesCode = SEAT_TYPE_CODE if SEAT_TYPE_CODE else [SEAT_TYPE[key] for key in SEAT_TYPE.keys()]
+
     passengerTypeCode = PASSENGER_TYPE_CODE if PASSENGER_TYPE_CODE else '1'
 
     count = 0

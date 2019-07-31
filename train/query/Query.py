@@ -204,6 +204,18 @@ class Query(object):
 
 
 if __name__ == "__main__":
-    # for ticket in Query.query('2017-12-31', '深圳北', '潮汕'):
-    #     print(ticket)
-    Query.outputPretty('2019-06-01', '沙坪坝', '兰州')
+  for tecket in Query.query(1, queryUrls['query']['url'], '2019-07-31', '福州', '长汀','ADULT'):
+      print(tecket)
+      if not TrainUtils.filterTrain(tecket, ['D6575']):
+          continue
+      for seatTypeName, seatTypeProperty in TrainUtils.seatWhich(['O'], tecket):
+              if seatTypeProperty and seatTypeProperty != '无':
+                  Log.v('%s %s: %s' % (tecket.trainNo, seatTypeName, seatTypeProperty))
+                  try:
+                      remind_num = int(seatTypeProperty)
+                  except Exception as e:
+                      remind_num = 100
+                  tecket.seatType = SEAT_TYPE[seatTypeName]
+                  tecket.remindNum = remind_num
+              print('tttt',tecket)
+    # Query.outputPretty('2019-07-31', '福州', '长汀')

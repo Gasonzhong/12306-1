@@ -136,6 +136,8 @@ def submitTicketTotalCost(jsonTicketInfo, orderDBListIndex=0):
 
 # 过滤车次
 def filterTrain(ticketDetails, trainsNo=[]):
+    print('ticketDetails',ticketDetails.trainNo)
+    print(trainsNo)
     if not trainsNo:
         return True
     for trainNo in trainsNo:
